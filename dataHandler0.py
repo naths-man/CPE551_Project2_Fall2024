@@ -63,3 +63,20 @@ class DataHandler:
             raise ValueError("Data has not been loaded. Call load_data() first.")
 
         return self.data.describe()
+
+    
+# Example usage:
+if __name__ == "__main__":
+    # Use the correct absolute path for the file
+    # Avoid redundant 'data' folder in the path
+    file_path = os.path.join("C:\\Users\\admin\\Desktop\\CPE551_Prj2", "data", "AllCarriers.csv")
+    print(f"Using file path: {file_path}")
+
+    handler = DataHandler(file_path)
+
+    try:
+        handler.load_data()
+        cleaned_data = handler.clean_data()
+        print("Data Summary:\n", handler.get_summary())
+    except Exception as e:
+        print(f"An error occurred: {e}")

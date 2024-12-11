@@ -160,7 +160,7 @@ class GUIManager:
                     hovermode="x unified"
                 )
             elif chart_type == "bar":
-                df_i = df.copy(True) #shallow copying to create new objects with references to the elements of the original object.
+                df_i = df.copy(True) #Create a deep copy of the DataFrames to avoid modifying the original.
                 df_i["YEAR"] = df_i["YEAR"].astype(str)
                 fig = px.bar(
                     df_i, x="MONTH", y=selected_data_type, color="YEAR",
